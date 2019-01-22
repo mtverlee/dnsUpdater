@@ -1,0 +1,6 @@
+configparser
+sentry-sdk
+requests
+urllib3==1.22
+logging
+argparse
