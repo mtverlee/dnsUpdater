@@ -1,5 +1,5 @@
 configparser
-sentry-sdk
+sentry-sdk==0.6.8
 requests
 urllib3==1.22
 logging
