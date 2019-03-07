@@ -31,17 +31,21 @@ def request(uri, params={}, method='GET'):
     }
 
     logging.debug('Requesting: %s (%s)' % (url, method))
-    if method == 'POST':
-        r = requests.post(url, headers=headers, data=params)
-    elif method == 'PUT':
-        r = requests.put(url, headers=headers, data=params)
-    else:
-        r = requests.get(url, params=params, headers=headers)
+    try:
+        if method == 'POST':
+            r = requests.post(url, headers=headers, data=params)
+        elif method == 'PUT':
+            r = requests.put(url, headers=headers, data=params)
+        else:
+            r = requests.get(url, params=params, headers=headers)
 
-    if r.status_code < 200 or r.status_code >= 300:
-        logging.error('Host replied with a non-OK status.')
-        logging.error(r.status_code)
-        sys.exit(REQUEST_ERROR)
+        if r.status_code < 200 or r.status_code >= 300:
+            logging.error('Host replied with a non-OK status.')
+            logging.error(r.status_code)
+            sys.exit(REQUEST_ERROR)
+    except(ConnectionError):
+        logging.error('Connection error!')
+        exit()
 
     return r.json()
 
