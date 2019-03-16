@@ -69,7 +69,7 @@ elif args.verbose == 1:
 else:
     debug = logging.WARNING
 
-logging.basicConfig(filename='dnsUpdater.log', format='%(asctime)s:%(levelname)s:%(message)s', datefmt='%m/%d/%Y-%I:%M:%S-%p', level=debug)
+logging.basicConfig(filename='/var/log/dnsUpdater.log', format='%(asctime)s:%(levelname)s:%(message)s', datefmt='%m/%d/%Y-%I:%M:%S-%p', level=debug)
 
 # Looking up the records.
 recordId = None
