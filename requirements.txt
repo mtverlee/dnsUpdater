@@ -1,6 +1,6 @@
 configparser
 sentry-sdk==0.6.8
 requests
-urllib3==1.22
+urllib3==1.24.2
 logging
 argparse
